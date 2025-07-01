@@ -1,4 +1,5 @@
-def verify_document():
+def verify_document(case):
+    print(f"\nFinal Verification for {case['name']}:")
     checklist = [
         "I have read the whole document.",
         "I believe the facts are true.",
@@ -7,6 +8,4 @@ def verify_document():
     for item in checklist:
         input(f"Check: {item} (Press Enter when done)")
     print("All done! You can now submit your document.")
-
-if __name__ == "__main__":
-    verify_document()
+    input("Press Enter to continue.")
