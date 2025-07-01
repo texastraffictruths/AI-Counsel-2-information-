@@ -1,4 +1,4 @@
-Copydef timeline_menu(case):
+def timeline_menu(case):
     while True:
         print(f"\nTimeline for {case['name']}:")
         for idx, event in enumerate(case["timeline"], 1):
