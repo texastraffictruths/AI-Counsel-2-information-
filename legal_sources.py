@@ -1,29 +1,21 @@
-sources = []
-
-def add_source(name, link="", summary=""):
-    sources.append({"name": name, "link": link, "summary": summary})
-
-def list_sources():
-    print("Legal Sources:")
-    for idx, src in enumerate(sources, 1):
-        print(f"{idx}. {src['name']}")
-        if src["link"]:
-            print(f"   Link: {src['link']}")
-        if src["summary"]:
-            print(f"   Summary: {src['summary']}")
-
-if __name__ == "__main__":
+def sources_menu(case):
     while True:
-        print("\n1. Add Source\n2. List Sources\n3. Quit")
-        choice = input("Choose option: ")
-        if choice == "1":
+        print(f"\nLegal Sources for {case['name']}:")
+        for idx, src in enumerate(case["legal_sources"], 1):
+            print(f"{idx}. {src['name']}")
+            if src["link"]:
+                print(f"   Link: {src['link']}")
+            if src["summary"]:
+                print(f"   Summary: {src['summary']}")
+        print("A. Add Source")
+        print("B. Back")
+        choice = input("Choose: ").strip().lower()
+        if choice == "a":
             name = input("Source Name: ")
             link = input("Link (optional): ")
             summary = input("Summary (optional): ")
-            add_source(name, link, summary)
-        elif choice == "2":
-            list_sources()
-        elif choice == "3":
+            case["legal_sources"].append({"name": name, "link": link, "summary": summary})
+        elif choice == "b":
             break
         else:
             print("Invalid choice.")
