@@ -1,24 +1,16 @@
-evidence = []
-
-def add_evidence(filename, description=""):
-    evidence.append({"file": filename, "description": description})
-
-def list_evidence():
-    print("Evidence List:")
-    for idx, item in enumerate(evidence, 1):
-        print(f"{idx}. {item['file']} - {item['description']}")
-
-if __name__ == "__main__":
+def evidence_menu(case):
     while True:
-        print("\n1. Add Evidence\n2. List Evidence\n3. Quit")
-        choice = input("Choose option: ")
-        if choice == "1":
+        print(f"\nEvidence for {case['name']}:")
+        for idx, item in enumerate(case["evidence"], 1):
+            print(f"{idx}. {item['file']} - {item['description']}")
+        print("A. Add Evidence")
+        print("B. Back")
+        choice = input("Choose: ").strip().lower()
+        if choice == "a":
             fname = input("File name: ")
             desc = input("Description: ")
-            add_evidence(fname, desc)
-        elif choice == "2":
-            list_evidence()
-        elif choice == "3":
+            case["evidence"].append({"file": fname, "description": desc})
+        elif choice == "b":
             break
         else:
             print("Invalid choice.")
