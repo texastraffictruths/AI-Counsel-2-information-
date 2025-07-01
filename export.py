@@ -1,5 +1,13 @@
-def export_data():
-    print("Exporting all case data... (future feature!)")
+import json
 
-if __name__ == "__main__":
-    export_data()
+def export_case(case):
+    filename = input("Enter filename to export (e.g., my_case_export.json): ").strip()
+    if not filename:
+        print("Export cancelled (no filename given).")
+        return
+    try:
+        with open(filename, "w") as f:
+            json.dump(case, f, indent=2)
+        print(f"Case exported to {filename}")
+    except Exception as e:
+        print(f"Export failed: {e}")
