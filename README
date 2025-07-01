@@ -1,0 +1,21 @@
+# AI Counsel: Pro Se Litigant Legal Assistant (Blueprint Project)
+
+## What is This?
+
+A privacy-first, offline, open-source legal assistant for people representing themselves in court (pro se litigants), starting with Texas cases.
+
+## How to Use
+
+Right now, this repo holds the basic “building blocks” of the app — each file is a module (like a Lego piece).  
+Future steps: connect the modules, add features, and make it user-friendly!
+
+## How to Help
+
+- Review the code blocks.
+- Suggest improvements.
+- Help connect the modules.
+- Ask questions or open issues.
+
+## Vision
+
+Empower regular people to build, manage, and understand their own legal cases with AI-powered tools — all while keeping their data private and secure.
