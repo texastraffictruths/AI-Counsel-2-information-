@@ -1,24 +1,16 @@
-entities = []
-
-def add_entity(name, role):
-    entities.append({"name": name, "role": role})
-
-def list_entities():
-    print("Entities:")
-    for idx, ent in enumerate(entities, 1):
-        print(f"{idx}. {ent['name']} ({ent['role']})")
-
-if __name__ == "__main__":
+def entities_menu(case):
     while True:
-        print("\n1. Add Entity\n2. List Entities\n3. Quit")
-        choice = input("Choose option: ")
-        if choice == "1":
+        print(f"\nEntities for {case['name']}:")
+        for idx, ent in enumerate(case["entities"], 1):
+            print(f"{idx}. {ent['name']} ({ent['role']})")
+        print("A. Add Entity")
+        print("B. Back")
+        choice = input("Choose: ").strip().lower()
+        if choice == "a":
             name = input("Name: ")
-            role = input("Role (e.g., Plaintiff, Officer, etc.): ")
-            add_entity(name, role)
-        elif choice == "2":
-            list_entities()
-        elif choice == "3":
+            role = input("Role: ")
+            case["entities"].append({"name": name, "role": role})
+        elif choice == "b":
             break
         else:
             print("Invalid choice.")
